@@ -2,4 +2,6 @@
 A simple visual programming language using drag and drop blocks for games in unity
 
 # See in action
-![](drag-drop1.gif)
+![](gif1.gif)
+
+![](gif2.gif)

@@ -18,6 +18,11 @@ public class UIDrop : MonoBehaviour, IDropHandler, IPointerClickHandler
             index = 1;
         }
         EventSystem.current.currentSelectedGameObject.transform.SetSiblingIndex(index);
+        
+        // rebuilds the layout and its child elements (previously done in UIDrag)
+        // the objects that allow drop are the ones who actually need this rebuild and
+        // fix bug when dropping even number of elements on a drag vessel
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 
     public void OnPointerClick(PointerEventData eventData)

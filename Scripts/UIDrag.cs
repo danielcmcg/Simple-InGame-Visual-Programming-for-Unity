@@ -9,7 +9,6 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerClic
     Vector3 startPosition;
     Vector3 diffPosition;
     GameObject canvas_;
-    static bool updateSize;
     GameObject panelGhost;
 
     public void OnDrag(PointerEventData eventData)
@@ -19,7 +18,7 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerClic
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        updateSize = true;
+    
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -41,15 +40,11 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerClic
     {
         canvas_ = GameObject.Find("Canvas");
         panelGhost = GameObject.Find("Panel ghost");
-        updateSize = false;
     }
 
     void Update()
     {
-        if(updateSize == true)
-        {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
-        }
+    
     }
 
 }
